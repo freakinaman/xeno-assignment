@@ -33,7 +33,7 @@ app.use(cors(corsOptions)); // Apply the updated CORS configuration
 app.use(bodyParser.json());
 app.use(express.json());
 
-Session Middleware
+//Session Middleware
 app.use(
     session({
         secret: process.env.SESSION_SECRET || "002be8753a0047d37edb019e55adeb8fc39e12a68f9c64b382bd78795b3a197d", // Use your own secret or store it in .env
