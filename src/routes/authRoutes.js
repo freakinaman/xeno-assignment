@@ -16,8 +16,8 @@ router.get(
         failureRedirect: "/auth/login", // Redirect to login on failure
     }),
     (req, res) => {
-        // Redirect to the React frontend dashboard on success
-        res.redirect("http://localhost:3000/dashboard"); // Adjust frontend URL if deployed
+        // Redirect to the deployed React frontend dashboard on success
+        res.redirect("https://xeno-frontend-ochre.vercel.app/dashboard"); // Updated frontend URL
     }
 );
 
@@ -27,7 +27,8 @@ router.get("/logout", (req, res) => {
         if (err) {
             console.error("Error during logout:", err);
         }
-        res.redirect("http://localhost:3000/"); // Redirect to React frontend homepage
+        // Redirect to the deployed React frontend homepage
+        res.redirect("https://xeno-frontend-ochre.vercel.app/"); // Updated frontend URL
     });
 });
 
