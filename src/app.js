@@ -22,46 +22,46 @@ const app = express();
 
 // CORS Configuration
 
-// const corsOptions = {
-//     origin: ["https://xeno-frontend-ochre.vercel.app"], // Allow your deployed frontend
-//     credentials: true, // Allow cookies and credentials
-// };
-// app.use(cors(corsOptions)); // Apply the updated CORS configuration
+const corsOptions = {
+    origin: ["https://xeno-frontend-ochre.vercel.app"], // Allow your deployed frontend
+    credentials: true, // Allow cookies and credentials
+};
+app.use(cors(corsOptions)); // Apply the updated CORS configuration
 
 
 // Middleware
 app.use(bodyParser.json());
 app.use(express.json());
 
-// Session Middleware
-// app.use(
-//     session({
-//         secret: process.env.SESSION_SECRET || "002be8753a0047d37edb019e55adeb8fc39e12a68f9c64b382bd78795b3a197d", // Use your own secret or store it in .env
-//         resave: false,
-//         saveUninitialized: true,
-//     })
-// );
-
+Session Middleware
 app.use(
     session({
-        secret: process.env.SESSION_SECRET || "002be8753a0047d37edb019e55adeb8fc39e12a68f9c64b382bd78795b3a197d",
+        secret: process.env.SESSION_SECRET || "002be8753a0047d37edb019e55adeb8fc39e12a68f9c64b382bd78795b3a197d", // Use your own secret or store it in .env
         resave: false,
         saveUninitialized: true,
-        cookie: {
-            httpOnly: true,
-            secure: process.env.NODE_ENV === "production", // Use secure cookies in production
-            sameSite: "none", // Required for cross-origin cookies
-        },
     })
 );
 
+// app.use(
+//     session({
+//         secret: process.env.SESSION_SECRET || "002be8753a0047d37edb019e55adeb8fc39e12a68f9c64b382bd78795b3a197d",
+//         resave: false,
+//         saveUninitialized: true,
+//         cookie: {
+//             httpOnly: true,
+//             secure: process.env.NODE_ENV === "production", // Use secure cookies in production
+//             sameSite: "none", // Required for cross-origin cookies
+//         },
+//     })
+// );
 
-// CORS Configuration
-const corsOptions = {
-    origin: ["https://xeno-frontend-ochre.vercel.app"], // Frontend URL
-    credentials: true, // Allow credentials (cookies)
-};
-app.use(cors(corsOptions));
+
+// // CORS Configuration
+// const corsOptions = {
+//     origin: ["https://xeno-frontend-ochre.vercel.app"], // Frontend URL
+//     credentials: true, // Allow credentials (cookies)
+// };
+// app.use(cors(corsOptions));
 
 // Initialize Passport Middleware
 app.use(passport.initialize());
