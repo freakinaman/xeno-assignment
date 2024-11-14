@@ -22,11 +22,11 @@ const app = express();
 
 // CORS Configuration
 
-const corsOptions = {
-    origin: ["https://xeno-frontend-ochre.vercel.app"], // Allow your deployed frontend
-    credentials: true, // Allow cookies and credentials
-};
-app.use(cors(corsOptions)); // Apply the updated CORS configuration
+// const corsOptions = {
+//     origin: ["https://xeno-frontend-ochre.vercel.app"], // Allow your deployed frontend
+//     credentials: true, // Allow cookies and credentials
+// };
+// app.use(cors(corsOptions)); // Apply the updated CORS configuration
 
 
 // Middleware
@@ -57,11 +57,11 @@ app.use(
 
 
 // // CORS Configuration
-// const corsOptions = {
-//     origin: ["https://xeno-frontend-ochre.vercel.app"], // Frontend URL
-//     credentials: true, // Allow credentials (cookies)
-// };
-// app.use(cors(corsOptions));
+const corsOptions = {
+    origin: ["https://xeno-frontend-ochre.vercel.app"], // Frontend URL
+    credentials: true, // Allow credentials (cookies)
+};
+app.use(cors(corsOptions));
 
 // Initialize Passport Middleware
 app.use(passport.initialize());
