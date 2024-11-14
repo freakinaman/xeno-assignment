@@ -22,9 +22,14 @@ const app = express();
 
 // CORS Configuration
 const corsOptions = {
-    origin: ["http://localhost:3000", "http://localhost:3001"], // Allow frontend's origin
+    origin: [
+        "http://localhost:3000", // Local frontend
+        "http://localhost:3001", // Another local frontend (if needed)
+        "https://xeno-frontend-ochre.vercel.app" // Deployed frontend on Vercel
+    ],
     credentials: true, // Allow cookies and other credentials
 };
+
 app.use(cors(corsOptions)); // Apply CORS configuration
 
 // Middleware
