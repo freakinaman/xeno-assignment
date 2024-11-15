@@ -39,6 +39,11 @@ app.use(
         secret: process.env.SESSION_SECRET || "002be8753a0047d37edb019e55adeb8fc39e12a68f9c64b382bd78795b3a197d", // Use your own secret or store it in .env
         resave: false,
         saveUninitialized: true,
+        cookie: {
+            httpOnly: true,
+            secure: process.env.NODE_ENV === "production",
+            sameSite: "none",
+        },
     })
 );
 
