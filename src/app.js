@@ -88,13 +88,16 @@ app.get("/", (req, res) => {
 // Protected Dashboard Route
 app.get("/api/dashboard", (req, res) => {
     if (!req.isAuthenticated()) {
+        console.log("User not authenticated");
         return res.status(401).json({ message: "Unauthorized" });
     }
+    console.log("Authenticated user:", req.user);
     res.json({
         displayName: req.user.displayName,
         email: req.user.emails ? req.user.emails[0].value : "No email found",
     });
 });
+
 
 // Logging Routes for Debugging (Optional)
 app._router.stack.forEach((middleware) => {
